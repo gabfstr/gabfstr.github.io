@@ -41,19 +41,20 @@ export function Layout(props: LayoutProps): React.ReactElement {
     );
     
 
-    // Add this function before your Layout component
+    // Initialize theme
     const initializeTheme = () => {
-        const savedTheme = window.localStorage.getItem('theme');
-        const isThemeManuallySet = window.localStorage.getItem('isThemeManuallySet');
+        if (typeof window !== 'undefined') {
+            const savedTheme = window.localStorage.getItem('theme');
+            const isThemeManuallySet = window.localStorage.getItem('isThemeManuallySet');
 
-        if (isThemeManuallySet === 'true' && savedTheme) {
-            return savedTheme === 'Dark' ? Theme.Dark : Theme.Light;
-        } else {
-            return globalState.theme;
+            if (isThemeManuallySet === 'true' && savedTheme) {
+                return savedTheme === 'Dark' ? Theme.Dark : Theme.Light;
+            }
         }
+        return globalState.theme;
     };
 
-    // Add this line at the beginning of your Layout component
+    // Theme state
     const [theme, setTheme] = useState(() => initializeTheme());
 
     // Update body attribute when theme changes
@@ -82,10 +83,14 @@ export function Layout(props: LayoutProps): React.ReactElement {
     const toggleTheme = () => {
         const newTheme = theme === Theme.Dark ? Theme.Light : Theme.Dark;
         setTheme(newTheme);
-        document.body.classList.add('transition');
-        document.body.classList.add('transition-bg');
-        window.localStorage.setItem('theme', newTheme);
-        window.localStorage.setItem('isThemeManuallySet', 'true');
+        if (typeof document !== 'undefined') {
+            document.body.classList.add('transition');
+            document.body.classList.add('transition-bg');
+        }
+        if (typeof window !== 'undefined') {
+            window.localStorage.setItem('theme', newTheme);
+            window.localStorage.setItem('isThemeManuallySet', 'true');
+        }
     };
 
 
