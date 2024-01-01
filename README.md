@@ -31,4 +31,5 @@ npm run deploy
 ```
 
 This will build your site and deploy it to GitHub Pages.
+Note that it requires a branch called "deployment" being set as Github Pages deployment branch (see [here](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)).
 
