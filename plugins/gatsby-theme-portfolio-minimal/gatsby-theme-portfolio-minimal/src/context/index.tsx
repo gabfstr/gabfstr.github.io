@@ -46,8 +46,10 @@ export function useGlobalState(): { globalState: GlobalState; dispatch: Dispatch
 function globalStateReducer(state: GlobalState, action: Action) {
     switch (action.type) {
         case ActionType.SetTheme: {
-            localStorage.setItem('theme', action.value);
-            localStorage.setItem('isThemeManuallySet', 'true');
+            if (typeof window !== 'undefined') {
+                localStorage.setItem('theme', action.value);
+                localStorage.setItem('isThemeManuallySet', 'true');
+            }
             return { ...state, theme: action.value };
         }
         case ActionType.SetSplashScreenDone: {
@@ -60,8 +62,13 @@ function globalStateReducer(state: GlobalState, action: Action) {
 }
 
 function initializeTheme(defaultTheme: Theme, useDarkMode: boolean): Theme {
-    const savedTheme = localStorage.getItem('theme');
-    const isThemeManuallySet = localStorage.getItem('isThemeManuallySet');
+    let savedTheme: string | null = null;
+    let isThemeManuallySet: string | null = null;
+
+    if (typeof window !== 'undefined') {
+        savedTheme = localStorage.getItem('theme');
+        isThemeManuallySet = localStorage.getItem('isThemeManuallySet');
+    }
 
     if (isThemeManuallySet === 'true' && savedTheme) {
         return savedTheme === 'Dark' ? Theme.Dark : Theme.Light;
@@ -69,7 +76,9 @@ function initializeTheme(defaultTheme: Theme, useDarkMode: boolean): Theme {
 
     const darkModeEnabled = useMediaQuery('(prefers-color-scheme: dark)', (isMatch) => {
         const updatedTheme = isMatch ? Theme.Dark : Theme.Light;
-        document.body.setAttribute('data-theme', updatedTheme);
+        if (typeof window !== 'undefined') {
+            document.body.setAttribute('data-theme', updatedTheme);
+        }
     });
 
     let initialTheme = defaultTheme;
