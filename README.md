@@ -22,6 +22,17 @@ gatsby develop
 
 This will start the local development server at http://localhost:8000.
 
+You can also open access to you local network for trying the mobile version on your phone by running :
+```bash
+gatsby develop -H 0.0.0.0 -p 8000
+```
+
+The -p (—port) specifies the port number that that you want to use. You can connect to the server by entering http://XXX.XXX.X.XX:8000/ in your mobile browser and replacing XXX.XXX.X.XX with your ip. 
+On Macos you can get this IP by runnig in the terminal :
+```
+ipconfig getifaddr en0
+```
+
 ## Deployment
 To deploy your site, run the following command:
 
