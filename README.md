@@ -11,6 +11,12 @@ cd folder
 npm install --legacy-peer-deps
 ```
 
+
+## Edit Content
+
+You can edit the content folders, with one file per section, either Markdown or JSON for easy modifications. For further customization see Development.
+
+
 ## Development
 
 
@@ -21,6 +27,11 @@ gatsby develop
 ```
 
 This will start the local development server at http://localhost:8000.
+
+Between two development runs, clean the caches using:
+```bash
+gatsby clean
+```
 
 You can also open access to you local network for trying the mobile version on your phone by running :
 ```bash
