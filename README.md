@@ -13,7 +13,6 @@ npm install --legacy-peer-deps
 
 ## Development
 
-Development should be done on the `dev` branch, as Gatsby will publish the built site to the `main` branch for GitHub Pages.
 
 To start developing, navigate to your project directory and run the following commands:
 
@@ -31,5 +30,8 @@ npm run deploy
 ```
 
 This will build your site and deploy it to GitHub Pages.
-Note that it requires a branch called "deployment" being set as Github Pages deployment branch (see [here](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)).
 
+
+### Note
+In this project Development is done on the `main` branch, as Gatsby publishes the built site to the `deployment` branch of the project for GitHub Pages. 
+It requires a branch called "deployment" being set as deployment branch for Github Pages (see [here](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)).
