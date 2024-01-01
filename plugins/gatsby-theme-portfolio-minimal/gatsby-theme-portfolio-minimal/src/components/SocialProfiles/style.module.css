@@ -14,17 +14,21 @@
     color: var(--primary-color);
 }
 
+.Profile.iconOnly svg {
+    margin-right: 0.5rem;
+}
+
 @media (max-width: 768px) {
-    .Profile {
-        padding: 0.25rem 0.75rem 0.25rem 0.5rem;
-    }
-
-    .Profile svg {
-        margin-right: -1px !important;
-    }
-
-    .profileLabel {
+    .Profile.iconOnly .profileLabel {
         display: none;
+    }
+    
+    .Profile.iconOnly {
+        padding: 0.25rem 0.75rem;
+    }
+    
+    .Profile.iconOnly svg {
+        margin-right: 0;
     }
 }
 

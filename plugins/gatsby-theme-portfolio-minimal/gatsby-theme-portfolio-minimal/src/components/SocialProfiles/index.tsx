@@ -61,7 +61,7 @@ export function SocialProfiles(props: SocialProfilesProps): React.ReactElement {
                 return !completeProfileData ? null : (
                     <a
                         key={key}
-                        className={`${classes.Profile} ${classes.profileLink} ${props.showIcon ? classes.iconOnly : ''}`}
+                        className={`${classes.Profile} ${props.showIcon ? classes.iconOnly : ''} ${classes.profileLink}`}
                         href={profile.url}
                         target="_blank"
                         rel="noopener noreferrer"
