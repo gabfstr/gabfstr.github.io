@@ -7,86 +7,88 @@ import { Icon } from '../Icon';
 import { Animation } from '../Animation';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { useSiteConfiguration } from '../../hooks/useSiteConfiguration';
+import { useScrollPosition } from '../../hooks/useScrollPosition';
 import * as classes from './style.module.css';
 
 export function Header({ theme, toggleTheme }): React.ReactElement {
-    const [open, setOpen] = React.useState<boolean>(false);
+    const [open, setOpen] = useState<boolean>(false);
     const siteConfiguration = useSiteConfiguration();
+    const scrollPosition = useScrollPosition();
     const isDesktopBreakpoint = useMediaQuery('(min-width: 992px)');
 
+    
 
-    // Update body attribute when theme changes
+    // Close sidebar when clicking outside of it
     useEffect(() => {
-        if (typeof document !== 'undefined') {
-            const body = document.body;
-            body.setAttribute('data-theme', theme);
+        const handleDocumentClick = (event) => {
+            if (!open) {
+                return;
+            }
 
-            // Function to remove transition classes
-            const removeTransitionClasses = () => {
-                body.classList.remove('transition');
-                body.classList.remove('transition-bg');
-            };
+            if (event.target.closest(`.${classes.Blurred}`) && !event.target.closest(`.${classes.Burger}`)) {
+                if (!event.target.closest(`.${classes.SideNavigationBar}`)) {
+                    setOpen(false);
+                }
+            }
+        };
 
-            // Remove transition classes after the transition has completed
-            body.addEventListener('transitionend', removeTransitionClasses);
+        document.addEventListener('click', handleDocumentClick);
 
-            // Clean up the event listener when the component is unmounted
-            return () => {
-                body.removeEventListener('transitionend', removeTransitionClasses);
-            };
-        }
-    }, [theme]);
+        return () => {
+            document.removeEventListener('click', handleDocumentClick);
+        };
+    }, [open]);
 
-    // Add scrolling state
-    const [scrollPosition, setScrollPosition] = useState(0);
 
-    const handleScroll = () => {
-        if (typeof document !== 'undefined' && typeof window !== 'undefined') {
-            const totalHeight = document.body.scrollHeight - window.innerHeight;
-            const scrollPosition = Math.round((window.scrollY / totalHeight) * 100);
-            setScrollPosition(scrollPosition);
+    const handleLinkClick = () => {
+        if (!isDesktopBreakpoint) {   
+            setOpen(!open);
         }
     };
 
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            window.addEventListener('scroll', handleScroll);
-            return () => {
-                window.removeEventListener('scroll', handleScroll);
-            };
-        }
-    }, []);
+    const handleThemeToggleClick = (event) => {
+        event.stopPropagation();
+        toggleTheme();
+    };
+
+    const homeLogo = (
+        <Link to="/" aria-label="home" className={classes.NavLink}>
+            <Icon name="home" color="var(--primary-color)" />
+        </Link>
+    );
 
     const navigationItems = (
         <>
-            {siteConfiguration.navigation.header.map((linkObject, key) => {
-                return (
-                    <Link
-                        key={key}
-                        to={linkObject.url}
-                        className={classes.NavLink}
-                        onClick={!isDesktopBreakpoint ? () => setOpen(!open) : undefined}
-                    >
-                        {linkObject.label}
-                    </Link>
-                );
-            })}
+            {siteConfiguration.navigation.header.map((linkObject, key) => (
+                <Link
+                    key={key}
+                    to={linkObject.url}
+                    className={classes.NavLink}
+                >
+                    <span>{linkObject.label}</span>
+                </Link>
+            ))}
             
             {siteConfiguration.navigation.ctaButton?.url && siteConfiguration.navigation.ctaButton?.label ? (
                 <Link
                     to={siteConfiguration.navigation.ctaButton.url}
                     target={siteConfiguration.navigation.ctaButton.openNewTab ? '_blank' : undefined}
                     className={classes.CtaButton}
-                    onClick={!isDesktopBreakpoint ? () => setOpen(!open) : undefined}
                 >
-                    {siteConfiguration.navigation.ctaButton.label}
+                    <span>{siteConfiguration.navigation.ctaButton.label}</span>
                 </Link>
             ) : null}
-
-            {/* Add theme toggle button */}
-            <button onClick={toggleTheme} style={{background: 'none', border: 'none', cursor: 'pointer'}}>                
-                    <Icon name="darkmode" color="var(--primary-color)" />
+    
+            <button onClick={handleThemeToggleClick} style={{background: 'none', border: 'none', cursor: 'pointer'}}>                
+                <Icon name="darkmode" color="var(--primary-color)" />
             </button>
+        </>
+    );
+
+    const sideNavigationBarItems = (
+        <>
+            {homeLogo}
+            {navigationItems}
         </>
     );
 
@@ -103,23 +105,20 @@ export function Header({ theme, toggleTheme }): React.ReactElement {
                 aria-hidden={!open}
                 tabIndex={open ? 1 : -1}
             >
-                <nav className={classes.SideNavigationBar}>{navigationItems}</nav>
+                <nav className={classes.SideNavigationBar} onClick={handleLinkClick} >{sideNavigationBarItems}</nav>
             </div>
-            <div className={classes.SideBarBackdrop} style={open ? { display: 'block' } : undefined} />
+            <div className={classes.SideBarBackdrop} style={open ? { display: 'block' } : undefined} onClick={() => setOpen(false)} />
         </>
     );
-
+    
     const topNavigationBar = <nav className={classes.TopNavigationBar}>{navigationItems}</nav>;
-
+    
     return (
         <header className={classes.Header}>
             <div className={classes.progressBar} style={{ width: `${scrollPosition}%` }} />
-            {/* Make background blurry when sidebar is opened */}
             <Helmet bodyAttributes={{ class: open ? classes.Blurred : undefined }} />
             <Animation className={classes.ContentWrapper} type="fadeDown">
-                <Link to="/" aria-label="home">
-                    <Icon name="home" color="var(--primary-color)" />
-                </Link>
+                {homeLogo}
                 {isDesktopBreakpoint ? topNavigationBar : sideNavigationBar}
             </Animation>
         </header>
