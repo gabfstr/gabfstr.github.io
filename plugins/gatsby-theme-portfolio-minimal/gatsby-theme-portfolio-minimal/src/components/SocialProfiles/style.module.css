@@ -14,6 +14,21 @@
     color: var(--primary-color);
 }
 
+@media (max-width: 768px) {
+    .Profile {
+        padding: 0.25rem 0.75rem 0.25rem 0.5rem;
+    }
+
+    .Profile svg {
+        margin-right: -1px !important;
+    }
+
+    .profileLabel {
+        display: none;
+    }
+}
+
+
 .Profile:hover {
     background-position: left bottom;
     color: var(--background-color);

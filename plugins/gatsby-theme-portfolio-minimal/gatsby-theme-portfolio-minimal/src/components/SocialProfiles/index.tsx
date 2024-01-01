@@ -61,14 +61,15 @@ export function SocialProfiles(props: SocialProfilesProps): React.ReactElement {
                 return !completeProfileData ? null : (
                     <a
                         key={key}
-                        className={`${classes.Profile} ${classes.profileLink}`}
+                        className={`${classes.Profile} ${classes.profileLink} ${props.showIcon ? classes.iconOnly : ''}`}
                         href={profile.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={profile.label}
                         style={props.showIcon ? { padding: '0.5rem 1.25rem' } : undefined}
                     >
-                        {props.showIcon ? <Icon name={profile.id} /> : undefined} {profile.label}
+                        {props.showIcon ? <Icon name={profile.id} /> : undefined} 
+                        <span className={classes.profileLabel}>{profile.label}</span>
                     </a>
                 );
             })}
