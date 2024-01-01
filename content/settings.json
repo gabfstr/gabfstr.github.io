@@ -1,0 +1,44 @@
+{
+  "siteMetadata": {
+    "language": "en",
+    "siteUrl": "https://gatsby-starter-portfolio-minimal-theme.netlify.app/",
+    "title": "Gabriel Fiastre",
+    "titleTemplate": "%s · Portfolio Minimal",
+    "description": "Custom Webpage Starter Project with Portfolio Minimal theme.",
+    "author": "Gabriel Fiastre",
+    "avatar": "../content/images/PhotoProfil.png",
+    "bio": "This biography will be used in the footer area of an article and can contain some more details about the author.",
+    "social": {
+      "github": "https://github.com/gabfstr",
+      "googlescholar": "https://github.com/gabfstr",
+      "linkedin": "https://www.linkedin.com/in/gabriel-fiastre-4b5085184/",
+      "mail": "mailto:gabriel.fiastre@inria.fr"
+    }
+  },
+  "siteConfiguration": {
+    "logo": { "image": "../content/images/draw_logo_contour.png", "title": "Gabriel Fiastre" },
+    "navigation": {
+      "header": [
+        { "label": "About me", "url": "/#aboutme" },
+        { "label": "News", "url": "/#news" },
+        { "label": "Research", "url": "/#research" },
+        { "label": "Teaching", "url": "/#teaching" }
+      ],
+      "ctaButton": {
+        "openNewTab": true,
+        "label": "Resume",
+        "url": "/resume.pdf"
+      },
+      "footer": {
+        "links": [
+        ],
+        "copyright": "Copyright © Gabriel Fiastre  / Based on the Gatsby <a href='https://github.com/konstantinmuenster/gatsby-theme-portfolio-minimal/'>Portfolio Minimal Theme</a> / Last update: December 2023"
+      }
+    },
+    "featureToggles": {
+      "useDarkModeAsDefault": false,
+      "useDarkModeBasedOnUsersPreference": true,
+      "useCookieBar": false
+    }
+  }
+}

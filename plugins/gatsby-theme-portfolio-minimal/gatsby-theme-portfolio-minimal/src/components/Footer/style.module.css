@@ -1,0 +1,62 @@
+.Footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    min-height: var(--footer-height);
+    background-color: var(--background-color) !important;
+    border-top: 1px solid var(--box-shadow-hover-color);
+    margin-top: 2rem;
+    padding: 2rem 0 3rem 0;
+}
+
+.ContentWrapper {
+    height: 100%;
+    width: calc(100% - calc((100% - var(--page-width)))/2); /* This will give the same left spacing as a centered element */
+    margin-left: auto; /* This will push the ContentWrapper to the right */
+    padding : var(--page-padding);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.Links {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Links a {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--background-color);
+    letter-spacing: 1px;
+    margin-right: 2rem;
+}
+
+.Links a:last-child {
+    margin-right: 0;
+}
+
+.Copyright { 
+    color: var(--subtext-color);
+    font-size: 0.8rem; 
+}
+
+@media (min-width: 768px) {
+    .Footer {
+        padding: 0;
+    }
+    .ContentWrapper {
+        flex-direction: row;
+        align-items: center;
+    }
+    .Links a {
+        margin-right: 4rem;
+    }
+}

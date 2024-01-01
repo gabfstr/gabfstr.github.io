@@ -1,0 +1,69 @@
+
+
+.row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0rem;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.col-date {
+    flex: 1;
+    padding-right: 1em;
+}
+
+.col-content {
+    flex: 9;
+}
+
+
+.label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;  /* adjust as necessary */
+    height: 25px;  /* adjust as necessary */
+    overflow: hidden;  /* adjust as necessary */
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    color: #ffffff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em
+}
+
+a.label:hover, a.label:focus {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer
+}
+
+.label:empty {
+    display: none
+}
+
+.btn .label {
+    position: relative;
+    top: -1px
+}
+
+
+
+.label-default {
+    background-color: rgb(66, 15, 84)
+}
+
+.label-default[href]:hover, .label-default[href]:focus {
+    background-color: #808080
+}
+
+.news-content a {
+    display: inline !important;
+}

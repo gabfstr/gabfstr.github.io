@@ -1,0 +1,60 @@
+{
+    "siteMetadata": {
+        "language": "en",
+        "siteUrl": "",
+        "title": "",
+        "titleTemplate": "%s · Portfolio",
+        "description": "",
+        "author": "",
+        "avatar": "",
+        "bio": "",
+        "social": {
+            "behance": "",
+            "buymeacoffee": "",
+            "devto": "",
+            "discord": "",
+            "dribble": "",
+            "github": "",
+            "gitlab": "",
+            "goodreads": "",
+            "hashnode": "",
+            "instagram": "",
+            "linkedin": "",
+            "mail": "",
+            "mastodon": "",
+            "medium": "",
+            "twitter": "",
+            "twitch": "",
+            "patreon": "",
+            "reddit": "",
+            "untappd": "",
+            "stackoverflow": "",
+            "youtube": "",
+            "googlescholar": ""
+        }
+    },
+    "siteConfiguration": {
+        "logo": { "text": "" },
+        "navigation": {
+            "header": [
+                { "label": "About", "url": "/#about" },
+                { "label": "Blog", "url": "/blog" },
+                { "label": "Features", "url": "/#features" },
+                { "label": "Github", "url": "/#github" }
+            ],
+            "ctaButton": { "openNewTab": true, "label": "Resume", "url": "/resume.pdf" },
+            "footer": {
+                "links": [
+                  { "label": "Privacy", "url": "/privacy" },
+                  { "label": "Contact", "url": "/contact" }
+                ],
+                "copyright": "Copyright © Gabriel Fiastre  /  Last update: December 2023"
+            }
+        },
+        "featureToggles": {
+            "useDarkModeAsDefault": false,
+            "useDarkModeBasedOnUsersPreference": true,
+            "useCookieBar": false
+        }
+    }
+}

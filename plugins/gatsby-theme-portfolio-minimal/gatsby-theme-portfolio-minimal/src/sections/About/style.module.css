@@ -1,0 +1,36 @@
+.About {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: -1rem; 
+    margin-bottom: -1rem;
+}
+
+.About .Description {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 3rem;
+}
+
+.About .ImageWrapper {
+    width: 100%;
+    max-width: 18rem;
+}
+
+.About .Image {
+    border-radius: var(--border-radius);
+}
+
+@media (min-width: 768px) {
+    .About {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .About .Description {
+        margin-bottom: 0;
+        margin-right: 3rem;
+    }
+    .About .ImageWrapper {
+        margin-top: -2rem;
+    }
+}

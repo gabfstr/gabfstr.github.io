@@ -1,0 +1,74 @@
+{
+  "name": "myfirstpage",
+  "version": "1.0.0",
+  "description": "A Gatsby Starter Project to easily get started with the Portfolio Minimal Theme.",
+  "scripts": {
+    "deploy": "gatsby build && gh-pages -d public -b main",
+    "clean": "gatsby clean",
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@fontsource/roboto": "^4.5.8",
+    "fs-extra": "^11.1.1",
+    "gatsby": "^5.0.1",
+    "gatsby-plugin-gdpr-cookies": "github:andrezimpel/gatsby-plugin-gdpr-cookies",
+    "gatsby-plugin-image": "^3.0.0",
+    "gatsby-plugin-manifest": "^4.18.1",
+    "gatsby-plugin-offline": "^6.0.0",
+    "gatsby-plugin-plausible": "^0.0.7",
+    "gatsby-plugin-react-helmet": "^6.0.0",
+    "gatsby-plugin-robots-txt": "^1.7.1",
+    "gatsby-plugin-sharp": "^5.0.0",
+    "gatsby-plugin-sitemap": "^6.0.0",
+    "gatsby-remark-images": "^7.0.0",
+    "gatsby-remark-prismjs": "^7.0.0",
+    "gatsby-source-filesystem": "^5.0.0",
+    "gatsby-transformer-json": "^5.0.0",
+    "gatsby-transformer-remark": "^6.0.0",
+    "gatsby-transformer-sharp": "^5.0.0",
+    "js-cookie": "^3.0.5",
+    "mini-svg-data-uri": "^1.4.4",
+    "normalize.css": "^8.0.1",
+    "p-queue": "^6.2.1",
+    "prismjs": "^1.29.0",
+    "react": "^18.2.0",
+    "react-cookie-consent": "^6.4.1",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "reading-time": "^1.5.0",
+    "slugify": "^1.6.5",
+    "svgo": "^3.0.2",
+    "tiny-skeleton-loader-react": "^1.1.8"
+  },
+  "author": "Gabriel Fiastre <gabriel.fiastre@inria.fr>",
+  "license": "MIT",
+  "starter-name": "myfirstpage",
+  "homepage": "https://github.com/gabfstr.github.io/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gabfstr.github.io/"
+  },
+  "bugs": {
+    "url": "https://github.com/gabfstr.github.io/issues"
+  },
+  "keywords": [
+    "react",
+    "gatsby",
+    "gatsby-theme",
+    "PWA",
+    "portfolio",
+    "showcase",
+    "minimal",
+    "animations",
+    "dark-mode",
+    "gdpr-compliant"
+  ],
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  }
+}

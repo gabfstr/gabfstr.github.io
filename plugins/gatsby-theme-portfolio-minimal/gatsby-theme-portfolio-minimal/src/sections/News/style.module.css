@@ -1,0 +1,37 @@
+.News {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.News .Description {
+    width: 100%;
+    max-width: 31.25rem;
+}
+
+@media (min-width: 768px) {
+    .News .Description {
+        margin-right: 3rem;
+    }
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: -1.5em;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.col-date {
+    flex: 1;
+    padding-right: 1em;
+}
+
+.col-content {
+    flex: 9;
+}

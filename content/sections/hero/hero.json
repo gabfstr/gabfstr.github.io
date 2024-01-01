@@ -1,0 +1,23 @@
+{
+  
+  "heroPhoto": {
+    "src": "../../images/PhotoProfil.png",
+    "alt": "My Photo"
+  },
+  "intro": "Hi !",
+  "image": {
+    "src": "../../images/waving-hand.png",
+    "alt": "Waving Hand Emoji"
+  },
+  "title": "I'm Gabriel Fiastre",
+  "subtitle": {
+    "prefix": "PhD student at ",
+    "highlight": "<a href='https://www.di.ens.fr/willow/' target=_blank aria-label='External Link' rel='noopener noreferrer'>Willow, Inria</a>",
+    "suffix": "."
+  },
+  "description": "I am working with <a href='https://antoyang.github.io/' target=_blank aria-label='External Link' rel='noopener noreferrer'><u>Antoine Yang</u></a> and <a href='https://cordeliaschmid.github.io/' target=_blankaria-label='External Link' rel='noopener noreferrer'><u>Cordelia Schmid</u></a> on Object-centric Representations. My other research interests lie in Computer Vision, Representation Learning and Generative Modeling.",
+  "socialProfiles": {
+    "from": ["LinkedIn", "Github", "GoogleScholar", "Mail"],
+    "showIcons": true
+  }
+}

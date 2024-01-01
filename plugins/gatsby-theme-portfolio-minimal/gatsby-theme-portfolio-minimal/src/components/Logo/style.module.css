@@ -1,0 +1,35 @@
+.Logo {
+    position: relative;
+    z-index: 9;
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    /* Disable effects when sidebar is open */
+    filter: none !important;
+    pointer-events: auto !important;
+    user-select: auto !important;
+    line-height: 2.5rem;
+}
+
+.Logo img,
+.Logo svg,
+.Logo picture > img {
+    width: 80px !important;
+    height: 80px !important;
+    min-width: 60px !important;
+    min-height: 60px !important;
+    object-fit: contain !important;
+}
+
+
+@media (max-width: 768px) {
+    .Logo img,
+    .Logo svg,
+    .Logo picture > img {
+        width: 6px !important;
+        height: 60px !important;
+        min-width: 60px !important;
+        min-height: 60px !important;
+    }
+    
+}
