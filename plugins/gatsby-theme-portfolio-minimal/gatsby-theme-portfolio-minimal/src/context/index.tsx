@@ -61,7 +61,7 @@ function globalStateReducer(state: GlobalState, action: Action) {
     }
 }
 
-function initializeTheme(defaultTheme: Theme, useDarkMode: boolean): Theme {
+export function initializeTheme(defaultTheme: Theme, useDarkMode: boolean): Theme {
     let savedTheme: string | null = null;
     let isThemeManuallySet: string | null = null;
 
@@ -71,7 +71,7 @@ function initializeTheme(defaultTheme: Theme, useDarkMode: boolean): Theme {
     }
 
     if (isThemeManuallySet === 'true' && savedTheme) {
-        return savedTheme === 'Dark' ? Theme.Dark : Theme.Light;
+        return savedTheme === 'lightTheme' ? Theme.Light : Theme.Dark;
     }
 
     const darkModeEnabled = useMediaQuery('(prefers-color-scheme: dark)', (isMatch) => {

@@ -5,7 +5,7 @@ import '../../globalStyles/theme.css';
 import React, { useLayoutEffect, useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocation } from '@reach/router';
-import { Theme, useGlobalState } from '../../context';
+import { Theme, useGlobalState, initializeTheme } from '../../context';
 import { SplashScreen } from '../SplashScreen';
 import { Footer } from '../Footer';
 import { Header } from '../Header';
@@ -40,19 +40,6 @@ export function Layout(props: LayoutProps): React.ReactElement {
         </>
     );
     
-
-    // Initialize theme
-    const initializeTheme = () => {
-        if (typeof window !== 'undefined') {
-            const savedTheme = window.localStorage.getItem('theme');
-            const isThemeManuallySet = window.localStorage.getItem('isThemeManuallySet');
-
-            if (isThemeManuallySet === 'true' && savedTheme) {
-                return savedTheme === 'Dark' ? Theme.Dark : Theme.Light;
-            }
-        }
-        return globalState.theme;
-    };
 
     // Theme state
     const [theme, setTheme] = useState(() => initializeTheme());
