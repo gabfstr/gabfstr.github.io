@@ -1,6 +1,5 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import { useMediaQuery } from '../hooks/useMediaQuery';
-import '../globalStyles/global.css';
 
 export enum Theme {
     Light = 'lightTheme',
@@ -34,14 +33,16 @@ export const GlobalStateProvider = ({ children, defaultTheme, useDarkModeBasedOn
     const toggleTheme = () => {
         const newTheme = globalState.theme === Theme.Dark ? Theme.Light : Theme.Dark;
         if (typeof document !== 'undefined') {
-            
-            document.querySelectorAll('*').forEach(el => {
-                el.style.transition = 'background-color 1s ease, color 1s ease, box-shadow 1.2s ease, border-color 1.2s ease';
-            });
-
+            document.documentElement.classList.add('transition-all');
+    
             setTimeout(() => {
                 dispatch({ type: ActionType.SetTheme, value: newTheme });
             }, 1);
+    
+            // Remove the transition-all class after 1 second
+            setTimeout(() => {
+                document.documentElement.classList.remove('transition-all');
+            }, 1000);
         }
     };
 
