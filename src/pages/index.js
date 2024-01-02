@@ -7,7 +7,7 @@ import {
   Page,
   ResearchSection,
   Seo,
-} from "../../plugins/gatsby-theme-portfolio-minimal/gatsby-theme-portfolio-minimal";
+} from "../../plugins/gatsby-theme-portfolio-minimal";
 
 export default function IndexPage() {
   return (
