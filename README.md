@@ -1,6 +1,23 @@
 # gabfstr.github.io
-[Personal portfolio website](https://gabfstr.github.io/), built upon the Gatsby theme [Portfolio Minimal Theme](https://github.com/konstantinmuenster/gatsby-theme-portfolio-minimal/'). 
+[Personal portfolio website](https://gabfstr.github.io/), built upon the Gatsby theme [Portfolio Minimal Theme](https://github.com/konstantinmuenster/gatsby-theme-portfolio-minimal/). Desktop & mobile compatible.
 
+## Table of contents
+[Install](#install-dependencies) | [Edit content](#edit-content) | [Development](#development) | [Deployment](#deployment)
+
+## Example
+
+**Light Mode:**
+
+
+<img src="./screenshot_light.png" alt="Light Mode" width="1000" />
+
+
+**Dark Mode:**
+
+
+<img src="./screenshot_dark.png" alt="Dark Mode" width="1000" />
+
+----------
 
 ## Install dependencies
 
@@ -77,5 +94,15 @@ This will build your site and deploy it to GitHub Pages.
 
 
 ### Note
-In this project Development is done on the `main` branch, as Gatsby publishes the built site to the `deployment` branch of the project for GitHub Pages. 
+In this project Development is done on the `main` branch, and set for Gatsby to publish the built site to the `deployment` branch of the project for GitHub Pages. 
 It requires a branch called "deployment" being set as deployment branch for Github Pages (see [here](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)).
+Else you can edit the chosen branch in the [package.json](/package.json) file
+```markdown
+{
+    "name": ...,
+    ...
+    "scripts": {
+        "deploy": "gatsby build && gh-pages -d public -b <BRANCH_NAME>",
+        ...
+}
+```
