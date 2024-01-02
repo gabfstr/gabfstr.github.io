@@ -9,13 +9,13 @@
 **Light Mode:**
 
 
-<img src="./screenshot_light.png" alt="Light Mode" width="1000" />
+<img src="./examples/screenshot_light.png" alt="Light Mode" width="1000" />
 
 
 **Dark Mode:**
 
 
-<img src="./screenshot_dark.png" alt="Dark Mode" width="1000" />
+<img src="./examples/screenshot_dark.png" alt="Dark Mode" width="1000" />
 
 
 **Features:**
@@ -23,7 +23,7 @@
 ***Toggle theme*** button, sticky header with progress bar, news section ...
 
 
-<img src="./screenshot_some_features.png" alt="Dark Mode" width="1000" />
+<img src="./examples/screenshot_some_features.png" alt="Dark Mode" width="1000" />
 
 ----------
 
