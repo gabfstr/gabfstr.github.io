@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import { useMediaQuery } from '../hooks/useMediaQuery';
+import '../globalStyles/global.css';
 
 export enum Theme {
     Light = 'lightTheme',
@@ -24,16 +25,32 @@ interface GlobalStateProviderProps {
 
 const GlobalStateContext = React.createContext<{ globalState: GlobalState; dispatch: Dispatch } | undefined>(undefined);
 
-export function GlobalStateProvider(props: GlobalStateProviderProps): React.ReactElement {
+export const GlobalStateProvider = ({ children, defaultTheme, useDarkModeBasedOnUsersPreference, useSplashScreenAnimation }) => {
     const [globalState, dispatch] = React.useReducer(globalStateReducer, {
-        theme: initializeTheme(props.defaultTheme, props.useDarkModeBasedOnUsersPreference),
-        // If useSplashScreenAnimation=false, we skip the animation by setting the initial value to true
-        splashScreenDone: props.useSplashScreenAnimation ? false : true,
+        theme: initializeTheme(defaultTheme, useDarkModeBasedOnUsersPreference),
+        splashScreenDone: useSplashScreenAnimation ? false : true,
     });
+
+    const toggleTheme = () => {
+        const newTheme = globalState.theme === Theme.Dark ? Theme.Light : Theme.Dark;
+        if (typeof document !== 'undefined') {
+            
+            document.querySelectorAll('*').forEach(el => {
+                el.style.transition = 'background-color 1s ease, color 1s ease, box-shadow 1.2s ease, border-color 1.2s ease';
+            });
+
+            setTimeout(() => {
+                dispatch({ type: ActionType.SetTheme, value: newTheme });
+            }, 1);
+        }
+    };
+
     return (
-        <GlobalStateContext.Provider value={{ globalState, dispatch }}>{props.children}</GlobalStateContext.Provider>
+        <GlobalStateContext.Provider value={{ globalState, dispatch, toggleTheme }}>
+            {children}
+        </GlobalStateContext.Provider>
     );
-}
+};
 
 export function useGlobalState(): { globalState: GlobalState; dispatch: Dispatch } {
     const context = React.useContext(GlobalStateContext);
