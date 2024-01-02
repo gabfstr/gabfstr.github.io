@@ -1,20 +1,42 @@
 # gabfstr.github.io
-Personal portfolio website, built upon the Gatsby theme [Portfolio Minimal Theme](https://github.com/konstantinmuenster/gatsby-theme-portfolio-minimal/'). 
+[Personal portfolio website](https://gabfstr.github.io/), built upon the Gatsby theme [Portfolio Minimal Theme](https://github.com/konstantinmuenster/gatsby-theme-portfolio-minimal/'). 
 
 
 ## Install dependencies
-- install nodejs
-- install a package manager (e.g. npm or yarn)
+
+- Copy the repo
 ```bash
+git clone https://github.com/gabfstr/gabfstr.github.io/ mywebpage
+```
+
+- [Install nodejs and a package manager](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) e.g. npm (or yarn)
+
+- Install project dependencies: 
+```bash
+cd mywebpage
 npm install gatsby@5.0.2 -g
-cd folder
 npm install --legacy-peer-deps
 ```
 
 
 ## Edit Content
 
-You can edit the content folders, with one file per section, either Markdown or JSON for easy modifications. For further customization see Development.
+The [content](/content) folder is reponsible for content information based on predefined sections.
+It is organized as such:
+
+    content/
+    ├── images           # all project images
+    ├── sections         # predefined sections content, each sections contains either a single markdown or JSON file
+    │   ├── about        
+    |   |   ├── about.md
+    │   ├── news         
+    |   |   ├── news.json
+    │   ...
+    │     
+    └── settings.json    # general website content settings
+
+The [settings.json](/content/settings.json) file is responsible for the main settings of the page (authorship, title, navigation, social profile links, darkMode preferences...).
+Each section content is passed either with a Markdown or JSON file for predefined sections. For adding customized sections, you would need to develop the plugin further and see [development](#development) section. 
 
 
 ## Development
