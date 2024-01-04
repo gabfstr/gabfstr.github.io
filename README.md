@@ -1,5 +1,5 @@
 # gabfstr.github.io
-[Personal portfolio website](https://gabfstr.github.io/), built upon the Gatsby theme [Portfolio Minimal Theme](https://github.com/konstantinmuenster/gatsby-theme-portfolio-minimal/). Desktop & mobile compatible.
+[Personal portfolio website](https://gabfstr.github.io/) built upon the Gatsby [Portfolio Minimal Theme](https://github.com/konstantinmuenster/gatsby-theme-portfolio-minimal/). Desktop & mobile compatible.
 
 ## Table of contents
  [Examples & Features](#examples--features) | [Install](#install-dependencies) | [Edit content](#edit-content) | [Development](#development) | [Deployment](#deployment)
