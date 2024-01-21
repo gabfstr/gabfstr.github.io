@@ -6,6 +6,11 @@
             "content": "I started my PhD in Computer vision at Willow !"
         },
         {
+            "date": "10 / 2023",
+            "color": "rgba(141, 201, 237, 0.8)",
+            "content": " I was at ICCV 2023 in Paris !"
+        },
+        {
             "date": "09 / 2023",
             "color": "#406595",
             "content": "I obtained my Msc. degree in Statistics and Machine Learning from PSL Research University."
