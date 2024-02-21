@@ -25,18 +25,15 @@ interface GlobalStateProviderProps {
 const GlobalStateContext = React.createContext<{ globalState: GlobalState; dispatch: Dispatch } | undefined>(undefined);
 
 export const GlobalStateProvider = ({ children, defaultTheme, useDarkModeBasedOnUsersPreference, useSplashScreenAnimation }) => {
-    const [globalState, dispatch] = React.useReducer(globalStateReducer, {
-        theme: initializeTheme(defaultTheme, useDarkModeBasedOnUsersPreference),
-        splashScreenDone: useSplashScreenAnimation ? false : true,
-    });
+    const [theme, setTheme] = React.useState(initializeTheme(defaultTheme, useDarkModeBasedOnUsersPreference));
+    const [splashScreenDone, setSplashScreenDone] = React.useState(useSplashScreenAnimation ? false : true);
 
     const toggleTheme = () => {
-        const newTheme = globalState.theme === Theme.Dark ? Theme.Light : Theme.Dark;
+        const newTheme = theme === Theme.Dark ? Theme.Light : Theme.Dark;
         if (typeof document !== 'undefined') {
             document.documentElement.classList.add('transition-all');
-    
             setTimeout(() => {
-                dispatch({ type: ActionType.SetTheme, value: newTheme });
+                setTheme(newTheme);
             }, 1);
     
             // Remove the transition-all class after 1 second
@@ -45,13 +42,14 @@ export const GlobalStateProvider = ({ children, defaultTheme, useDarkModeBasedOn
             }, 1000);
         }
     };
-
     return (
-        <GlobalStateContext.Provider value={{ globalState, dispatch, toggleTheme }}>
+        <GlobalStateContext.Provider value={{ globalState: { theme, splashScreenDone }, toggleTheme }}>
             {children}
         </GlobalStateContext.Provider>
     );
 };
+
+ 
 
 export function useGlobalState(): { globalState: GlobalState; dispatch: Dispatch } {
     const context = React.useContext(GlobalStateContext);
