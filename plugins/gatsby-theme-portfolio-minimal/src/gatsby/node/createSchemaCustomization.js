@@ -135,7 +135,6 @@ module.exports = ({ actions }) => {
         siteUrl: String
         thumbnail: File @fileByRelativePath
         title: String
-        image: String
         titleTemplate: String
         description: String
         author: String

@@ -311,7 +311,6 @@ The theme settings can be divided in two parts. There is a `settings.json` file 
         "siteUrl": "", // Site URL for SEO
         "thumbnail": "", // Path to image. Displayed if site gets shared (e.g. on LinkedIn).
         "title": "", // Default SEO title
-        "image": "", // SEO/link preview image (must be in static folder)
         "titleTemplate": "%s · Portfolio", // SEO Title title (%s will be replaced by title of page)
         "description": "", // Default SEO description
         "author": "", // Author's name for blog article footer

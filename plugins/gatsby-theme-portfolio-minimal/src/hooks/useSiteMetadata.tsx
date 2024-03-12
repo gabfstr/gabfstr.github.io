@@ -46,7 +46,6 @@ export const query = graphql`
                         }
                     }
                     title
-                    image
                     social {
                         behance
                         github
