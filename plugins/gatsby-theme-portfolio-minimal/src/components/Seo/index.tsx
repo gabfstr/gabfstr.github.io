@@ -25,17 +25,21 @@ export function Seo(props: SeoProps): React.ReactElement {
             htmlAttributes={{ lang: siteMetadata.language }}
         >
             {props.noIndex && <meta name="robots" content="noindex" />}
+            <meta name="google-site-verification" content={siteMetadata.googleBalise} />
+            
             <meta name="description" content={siteMetadata.description} />
             <meta property="og:title" content={siteMetadata.title} />
+            <meta property="og:image" content={siteMetadata.image} />
             <meta property="og:site_name" content={siteMetadata.title} />
             <meta property="og:url" content={siteMetadata.siteUrl + location.pathname} />
             {thumbnailUrl && <meta property="og:image" content={thumbnailUrl} />}
             <meta property="og:description" content={siteMetadata.description} />
             <meta property="og:type" content="website" />
-            <meta property="twitter:card" content="summary" />
+            <meta property="twitter:card" content="summary_large_image" />
             <meta property="twitter:creator" content={siteMetadata.author} />
             <meta property="twitter:title" content={siteMetadata.title} />
             <meta property="twitter:description" content={siteMetadata.description} />
+            <meta property="twitter:image" content={siteMetadata.image} />
         </Helmet>
     );
 }

@@ -1,19 +1,21 @@
 {
   "siteMetadata": {
     "language": "en",
-    "siteUrl": "https://gatsby-starter-portfolio-minimal-theme.netlify.app/",
+    "siteUrl": "https://www.gabriel.fiastre.fr",
     "title": "Gabriel Fiastre",
+    "image": "../static/PhotoProfil.png",
     "titleTemplate": "%s · Portfolio Minimal",
-    "description": "Custom Webpage Starter Project with Portfolio Minimal theme.",
+    "description": "Hi there! I'm Gabriel, PhD student in computer science at Inria, France. Click to learn more about me !",
     "author": "Gabriel Fiastre",
     "avatar": "../content/images/PhotoProfil.png",
-    "bio": "This biography will be used in the footer area of an article and can contain some more details about the author.",
+    "bio": "Hi there! I'm Gabriel, PhD student in computer science at Inria, France. Feel free to reach out to discuss any research !",
     "social": {
       "github": "https://github.com/gabfstr",
       "googlescholar": "https://github.com/gabfstr",
       "linkedin": "https://www.linkedin.com/in/gabriel-fiastre-4b5085184/",
       "mail": "mailto:gabriel.fiastre@inria.fr"
-    }
+    },
+    "googleBalise": "rwleeVlcOL3Qa_1vlYHs9Vm22fFN5S2v00fDMF-JTV8"
   },
   "siteConfiguration": {
     "logo": { "image": "../content/images/draw_logo_contour.png", "title": "Gabriel Fiastre" },

@@ -3,6 +3,7 @@
         "language": "en",
         "siteUrl": "",
         "title": "",
+        "image": "",
         "titleTemplate": "%s · Portfolio",
         "description": "",
         "author": "",
@@ -31,7 +32,8 @@
             "stackoverflow": "",
             "youtube": "",
             "googlescholar": ""
-        }
+        },
+        "googleBalise": ""
     },
     "siteConfiguration": {
         "logo": { "text": "" },

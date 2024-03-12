@@ -46,6 +46,7 @@ export const query = graphql`
                         }
                     }
                     title
+                    image
                     social {
                         behance
                         github
@@ -72,6 +73,7 @@ export const query = graphql`
                         googlescholar
                     }
                     titleTemplate
+                    googleBalise
                 }
             }
         }
