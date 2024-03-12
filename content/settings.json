@@ -3,6 +3,7 @@
     "language": "en",
     "siteUrl": "https://www.gabriel.fiastre.fr",
     "title": "Gabriel Fiastre",
+    "thumbnail": "PhotoProfil.png", 
     "image": "PhotoProfil.png",
     "titleTemplate": "%s · Portfolio Minimal",
     "description": "Hi there! I'm Gabriel, PhD student in computer science at Inria, France. Click to learn more about me !",
