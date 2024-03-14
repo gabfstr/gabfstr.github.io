@@ -6,7 +6,8 @@
     "titleTemplate": "%s · Portfolio Minimal",
     "description": "Hi there! I'm Gabriel, PhD student in computer science at Inria, France. Click to learn more about me !",
     "author": "Gabriel Fiastre",
-    "avatar": "../content/images/PhotoProfil.png",
+    "avatar": "/static/PhotoProfil.png",
+    "thumbnail": "/static/PhotoProfil.png",
     "bio": "Hi there! I'm Gabriel, PhD student in computer science at Inria, France. Feel free to reach out to discuss any research !",
     "social": {
       "github": "https://github.com/gabfstr",
@@ -17,7 +18,7 @@
     "googleBalise": "rwleeVlcOL3Qa_1vlYHs9Vm22fFN5S2v00fDMF-JTV8"
   },
   "siteConfiguration": {
-    "logo": { "image": "../content/images/draw_logo_contour.png", "title": "Gabriel Fiastre" },
+    "logo": { "image": "../content/images/favicon.png", "title": "Gabriel Fiastre" },
     "navigation": {
       "header": [
         { "label": "About me", "url": "/#aboutme" },

@@ -5,7 +5,7 @@ module.exports = {
       options: {
         siteUrl: "https://www.gabriel.fiastre.fr", // Used for sitemap generation
         manifestSettings: {
-          favicon: "./content/images/draw_logo_contour.png", // Path is relative to the root
+          favicon: "./content/images/favicon.png", // Path is relative to the root
           siteName: "Gabriel Fiastre Portfolio", // Used in manifest.json
           shortName: "Gabriel Fiastre", // Used in manifest.json
           startUrl: "/", // Used in manifest.json
