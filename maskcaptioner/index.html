@@ -225,17 +225,6 @@
                       </a>
                     </span>
 
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
                   <!-- TODO: Replace with your GitHub repository URL -->
                   <span class="link-block">
                     <a href="https://github.com/YOUR REPO HERE" target="_blank"
@@ -335,7 +324,7 @@
         <!-- Model architecture image (add your file at static/images/model_architecture.png) -->
       <img src="static/images/final_model_architecture_temp_agg_clean_nobg.png" alt="Model architecture" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;" />
         <h2 class="subtitle has-text-centered" style="margin-top: 1rem;" >
-          Our MaskCaptioner model architecture. We process each video in clip subdivisions, in a semi-online fashion. After generating object queries and predictions for each object in a clip we can perform tracking and captioning at a video-level.
+          Overview of our MaskCaptioner architecture. Videos are divided into clips that are processed sequentially in a semi-online manner. After generating queries and predictions for each object within a clip, tracking and captioning can be performed at the video level.
         </h2>
       </div>
     </div>
@@ -372,12 +361,13 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
+      <pre id="bibtex-code"><code>@inproceedings{fiastre2025maskcap},
+  title={MaskCaptioner : Learning to jointly Segment and Caption Object Trajectories in Videos},
+  author={Gabriel Fiastre and Antoine Yang and Cordelia Schmid},
+  year={2025},
+  eprint={},
+  arxivePrefix{archiv},
+  url={https://www.gabriel.fiastre.fr/maskcaptioner/}
 }</code></pre>
     </div>
 </section>
