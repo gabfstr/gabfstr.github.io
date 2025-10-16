@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmyfirstpage=self.webpackChunkmyfirstpage||[]).push([[672],{206:function(e,n,t){t.r(n),t.d(n,{default:function(){return u}});t(7294),t(7985);function u(){}}}]);
+//# sourceMappingURL=component---src-pages-test-js-96f37e743c7d23369b01.js.map
