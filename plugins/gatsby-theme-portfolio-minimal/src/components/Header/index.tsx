@@ -10,7 +10,7 @@ import { useSiteConfiguration } from '../../hooks/useSiteConfiguration';
 import { useScrollPosition } from '../../hooks/useScrollPosition';
 import * as classes from './style.module.css';
 
-export function Header({ theme, toggleTheme }): React.ReactElement {
+export function Header({ theme, toggleTheme, showNavigation=true }): React.ReactElement {
     const [open, setOpen] = useState<boolean>(false);
     const siteConfiguration = useSiteConfiguration();
     const scrollPosition = useScrollPosition();
@@ -59,7 +59,7 @@ export function Header({ theme, toggleTheme }): React.ReactElement {
 
     const navigationItems = (
         <>
-            {siteConfiguration.navigation.header.map((linkObject, key) => (
+            {showNavigation && (siteConfiguration.navigation.header.map((linkObject, key) => (
                 <Link
                     key={key}
                     to={linkObject.url}
@@ -67,9 +67,9 @@ export function Header({ theme, toggleTheme }): React.ReactElement {
                 >
                     <span>{linkObject.label}</span>
                 </Link>
-            ))}
+            )))}
             
-            {siteConfiguration.navigation.ctaButton?.url && siteConfiguration.navigation.ctaButton?.label ? (
+            {showNavigation && (siteConfiguration.navigation.ctaButton?.url && siteConfiguration.navigation.ctaButton?.label ? (
                 <Link
                     to={siteConfiguration.navigation.ctaButton.url}
                     target={siteConfiguration.navigation.ctaButton.openNewTab ? '_blank' : undefined}
@@ -77,7 +77,7 @@ export function Header({ theme, toggleTheme }): React.ReactElement {
                 >
                     <span>{siteConfiguration.navigation.ctaButton.label}</span>
                 </Link>
-            ) : null}
+            ) : null)}
     
             <button onClick={handleThemeToggleClick} style={{background: 'none', border: 'none', cursor: 'pointer'}}>                
                 <Icon name="darkmode" color="var(--primary-color)" />

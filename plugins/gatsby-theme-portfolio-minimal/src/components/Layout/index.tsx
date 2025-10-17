@@ -16,6 +16,8 @@ interface LayoutProps {
     children: React.ReactElement;
     useSplashScreenAnimation: boolean;
     useCookieBar: boolean;
+    showNavigation: boolean;
+    showFooter: boolean;
 }
 
 export function Layout(props: LayoutProps): React.ReactElement {
@@ -46,9 +48,9 @@ export function Layout(props: LayoutProps): React.ReactElement {
                 }}
             />
             <div className={classes.Layout}>
-                <Header theme={globalState.theme} toggleTheme={toggleTheme} />
+                <Header theme={globalState.theme} toggleTheme={toggleTheme} showNavigation={props.showNavigation} />
                 <main>{props.children}</main>
-                <Footer />
+                {props.showFooter && <Footer />}
                 {props.useCookieBar ? <CookieBar /> : <EnsureActivatedTrackingCookie />}
             </div>
         </>

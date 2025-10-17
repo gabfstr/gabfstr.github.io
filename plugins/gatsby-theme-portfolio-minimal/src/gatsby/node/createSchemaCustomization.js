@@ -178,6 +178,56 @@ module.exports = ({ actions }) => {
         keywords: [String!]
         readingTime: ReadingTimeStats
     }
+    type Authors {
+        name: String!
+        link: String
+        institutions: [Int!]
+        equal: Boolean
+    }
+    type ButtonsList {
+        arxiv_pdf: String
+        arxiv_abs: String
+        code: String
+        supplementary: String
+    }
+    type TeaserVideo {
+        src: String!
+        caption: String
+    }
+    type CarouselVideo {
+        title: String
+        src: String!
+    }
+    type ProjectPageVideos {
+        teaser: TeaserVideo
+        carousel: [CarouselVideo!]
+        carousel_caption: String
+    }
+    type ProjectPageImages {
+        src: File @fileByRelativePath
+        caption: String
+    }
+    type ProjectPageFrontmatter {
+        title: String!
+        authors: [Authors!]
+        institutions: [String!]
+        conference: String
+        equal_contribution_note: String
+        buttons: ButtonsList
+        videos: ProjectPageVideos
+        images: [ProjectPageImages!]
+        poster_pdf: String
+        bibtex: String
+        footer_note: String
+    }
+    type ProjectPageMarkdown implements Node @dontInfer @childOf(type: "MarkdownRemark") {
+        id: ID!
+        slug: String!
+        title: String!
+        body: String! 
+        readingTime: ReadingTimeStats
+        frontmatter: ProjectPageFrontmatter
+    }
     type MarkdownRemarkFrontmatter {
         imagetop: File @fileByRelativePath
         imagebot: File @fileByRelativePath

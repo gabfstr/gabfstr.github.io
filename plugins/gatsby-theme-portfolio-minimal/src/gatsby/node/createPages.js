@@ -1,17 +1,18 @@
 const path = require('path');
-const query = require('../../templates/Article/query');
+const articleQuery = require('../../templates/Article/query');
+const testQuery = require('../../templates/ProjectPages/query');
 
 module.exports = async ({ graphql, actions, reporter }, options) => {
     const templateDir = path.join(__dirname, '../', '../', '../', 'src', 'templates');
 
-    const response = await graphql(query.ArticleTemplateQuery);
-    const data = response.data;
+    const articleResponse = await graphql(articleQuery.ArticleTemplateQuery);
+    const articleData = articleResponse.data;
 
-    if (!data && response.errors) {
-        throw new Error(`Error while fetching article data, ${response.errors}`);
-    } else if (data.allArticle.articles.length !== 0 && (!options.blogSettings || !options.blogSettings.path)) {
+    if (!articleData && articleResponse.errors) {
+        throw new Error(`Error while fetching article data, ${articleResponse.errors}`);
+    } else if (articleData.allArticle.articles.length !== 0 && (!options.blogSettings || !options.blogSettings.path)) {
         throw new Error(`No path for ArticleListing page in gatsby-config specified`);
-    } else if (data.allArticle.articles.length === 0 && !options.blogSettings) {
+    } else if (articleData.allArticle.articles.length === 0 && !options.blogSettings) {
         reporter.info('Blog disabled, skipping articles page creation');
         return;
     }
@@ -23,13 +24,13 @@ module.exports = async ({ graphql, actions, reporter }, options) => {
         path: articleListingPageSlug,
         component: path.resolve(templateDir, 'ArticleListing', 'index.tsx'),
         context: {
-            articles: data.allArticle.articles,
+            articles: articleData.allArticle.articles,
             entityName: options.blogSettings.entityName,
         },
     });
 
     // Create pages for each individual Article
-    data.allArticle.articles.forEach((article) => {
+    articleData.allArticle.articles.forEach((article) => {
         reporter.info(`Creating Article page under ${article.slug}`);
         actions.createPage({
             path: article.slug,

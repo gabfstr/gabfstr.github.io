@@ -9,6 +9,9 @@ module.exports = ({ createResolvers, store, reporter }) => {
         ArticleMarkdown: {
             body: { resolve: parentResolverPassthrough('html') },
         },
+        ProjectPageMarkdown: {
+            body: { resolve: parentResolverPassthrough('html') },
+        },
         File: {
             svg: {
                 type: 'InlineSvg',

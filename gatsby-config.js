@@ -19,6 +19,13 @@ module.exports = {
         //     anonymize: true, // Default true
         //     environments: ["production", "development"] // Default ["production"]
         // }
+        // StatCounter configuration: set your project and security values here.
+        statcounter: {
+          project: 13176645,
+          security: '8216adf6',
+          invisible: 1,
+          environments: ['production']
+        }
       },
     },
   ],

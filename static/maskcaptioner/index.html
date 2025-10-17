@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Primary Meta Tags -->
+  <!-- TODO: Replace with your paper title and author names -->
+  <meta name="title" content="MaskCaptioner - Gabriel Fiastre, Antoine Yang, Cordelia Schmid">
+  <!-- TODO: Write a compelling 150-160 character description of your research -->
+  <meta name="description" content="We generate object-level synthetic captions using VLM, and propose two synthetic datasets LVIScap and LV-VISCap on which we train MaskCaptioner, the first end-to-end model to jointly detect, segment, track and caption objects in a video.">
+  <!-- TODO: Add 5-10 relevant keywords for your research area -->
+  <meta name="keywords" content="dense video object captioning, instance segmentation, multi-object Tracking, image Captioning, video understanding, segmentation, detection, object localization, dense captioning, machine learning, computer vision, AI">
+  <!-- TODO: List all authors -->
+  <meta name="author" content="Gabriel Fiastre, Antoine Yang, Cordelia Schmid">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <!-- TODO: Replace with your institution or lab name -->
+  <meta property="og:site_name" content="Inria Paris">
+  <!-- TODO: Same as paper title above -->
+  <meta property="og:title" content="MaskCaptioner: Learning to jointly Segment and Caption Object Trajectories in Videos">
+  <!-- TODO: Same as description above -->
+  <meta property="og:description" content="We generate object-level synthetic captions using VLM, and propose two synthetic datasets LVIScap and LV-VISCap on which we train MaskCaptioner, the first end-to-end model to jointly detect, segment, track and caption objects in a video.">
+  <!-- TODO: Replace with your actual website URL -->
+  <meta property="og:url" content="https://www.gabriel.fiastre.fr/maskcaptioner/">
+  <!-- TODO: Create a 1200x630px preview image and update path -->
+  <meta property="og:image" content="https://www.gabriel.fiastre.fr/maskcaptioner/static/images/example_microscope_cropped_for_gif.gif">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="MaskCaptioner - Research Preview">
+  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
+  <meta property="article:author" content="Gabriel Fiastre">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="Machine Learning">
+  <meta property="article:tag" content="Computer Vision">
+  <meta property="article:tag" content="Instance Segmentation">
+  <meta property="article:tag" content="Video Instance Segmentation">
+  <meta property="article:tag" content="Video understanding">
+  <meta property="article:tag" content="Multi Object Tracking">
+  <meta property="article:tag" content="Video Instance Captioning">
+  <meta property="article:tag" content="Video Captioning">
+  <meta property="article:tag" content="Image Captioning">
+  <meta property="article:tag" content="Dense video object captioning">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- TODO: Replace with your lab/institution Twitter handle -->
+  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
+  <!-- TODO: Replace with first author's Twitter handle -->
+  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
+  <!-- TODO: Same as paper title above -->
+  <meta name="twitter:title" content="MaskCaptioner - ">
+  <!-- TODO: Same as description above -->
+  <meta name="twitter:description" content="We generate object-level synthetic captions using VLM, and propose two synthetic datasets LVIScap and LV-VISCap on which we train MaskCaptioner, the first end-to-end model to jointly detect, segment, track and caption objects in a video.">
+  <!-- TODO: Same as social preview image above -->
+  <meta name="twitter:image" content="https://www.gabriel.fiastre.fr/maskcaptioner/static/images/example_microscope_cropped_for_gif.gif">
+  <meta name="twitter:image:alt" content="MaskCaptioner - Research Preview">
+
+  <!-- Academic/Research Specific -->
+  <meta name="citation_title" content="MaskCaptioner: Learning to jointly Segment and Caption Object Trajectories in Videos">
+  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
+  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
+  <meta name="citation_publication_date" content="2024">
+  <meta name="citation_conference_title" content="CONFERENCE_NAME">
+  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
+  
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+
+  <!-- TODO: Replace with your paper title and authors -->
+  <title>MaskCaptioner - Gabriel Fiastre, Antoine Yang, Cordelia Schmid | Academic Research</title>
+  
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  
+  <!-- Structured Data for Academic Papers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "MaskCaptioner - Learning to jointly Segment and Caption Object Trajectories in Videos",
+    "description": "We generate object-level synthetic captions using VLM, and propose two synthetic datasets LVIScap and LV-VISCap on which we train MaskCaptioner, the first end-to-end model to jointly detect, segment, track and caption objects in a video.",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Gabriel Fiastre",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "INSTITUTION_NAME"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Antoine Yang, Cordelia Schmid",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "INSTITUTION_NAME"
+        }
+      }
+    ],
+    "datePublished": "2024-01-01",
+    "publisher": {
+      "@type": "Organization",
+      "name": "CONFERENCE_OR_JOURNAL_NAME"
+    },
+    "url": "https://www.gabriel.fiastre.fr/maskcaptioner/",
+    "image": "https://www.gabriel.fiastre.fr/maskcaptioner/static/images/example_microscope_cropped_for_gif.gif",
+    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
+    "abstract": "FULL_ABSTRACT_TEXT_HERE",
+    "citation": "BIBTEX_CITATION_HERE",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://www.gabriel.fiastre.fr/maskcaptioner/"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "RESEARCH_AREA_1"
+      },
+      {
+        "@type": "Thing", 
+        "name": "RESEARCH_AREA_2"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Website/Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Inria Paris",
+    "url": "https://www.inria.fr/",
+    "logo": "https://www.gabriel.fiastre.fr/maskcaptioner/static/images/logo_INRIA.png",
+    "sameAs": [
+      "https://twitter.com/YOUR_TWITTER_HANDLE",
+      "https://github.com/gabfstr"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop" style="margin-top: 1.5rem;">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- TODO: Replace with your paper title -->
+            <h1 class="title is-2 publication-title">MaskCaptioner : Learning to jointly Segment and Caption Object Trajectories in Videos</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- TODO: Replace with your paper authors and their personal links -->
+              <span class="author-block">
+                <a href="https://www.gabriel.fiastre.fr" target="_blank">Gabriel Fiastre</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="https://antoyang.github.io" target="_blank">Antoine Yang</a><sup>2</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://cordeliaschmid.github.io/" target="_blank">Cordelia Schmid</a><sup>1</sup>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <!-- TODO: Replace with your institution and conference/journal info -->
+                    <span class="author-block"><sup>1</sup> Inria, École Normale Supérieure, CNRS<br><sup>2</sup> Google Deepmind</span>
+                    <!-- TODO: Remove this line if no equal contribution -->
+                    <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- TODO: Update with your arXiv paper ID -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                  <!-- TODO: Replace with your GitHub repository URL -->
+                  <span class="link-block">
+                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- TODO: Update with your arXiv paper ID -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- Replaced video with a GIF -->
+      <img src="static/images/example_microscope_cropped_for_gif_nobg.gif" alt="Teaser GIF" />
+      <!-- TODO: Replace with your video/gif description -->
+      <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+        Qualitative results on the LV-VIS dataset. MaskCaptioner learns to effectively detect, segment, track and caption all objects in a video.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <!-- TODO: Replace with your paper abstract -->
+          <p>
+            Dense Video Object Captioning (DVOC) is the task of jointly detecting, tracking, and captioning object trajectories in a video, requiring the ability to understand spatio-temporal details and describe them in natural language. Due to the complexity of the task and the high cost associated with manual annotation, previous approaches resort to disjoint training strategies, potentially leading to suboptimal performance. To circumvent this issue, we propose to generate captions about spatio-temporally localized entities leveraging a state-of-the-art VLM. By extending the LVIS and LV-VIS datasets with our synthetic captions (LVISCap and LV-VISCap), we train MaskCaptioner, an end-to-end model capable of jointly detecting, segmenting, tracking and captioning object trajectories. Moreover, with pretraining on LVISCap and LV-VISCap, MaskCaptioner achieves state-of-the-art DVOC results on three existing benchmarks, VidSTG, VLN and BenSMOT.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered" style="margin-top: 1rem; margin-bottom: 0rem;">Annotation pipeline</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item" style="margin-top: 0rem;">
+        <img src="static/images/final_annotation_loop_reduced_nobg.png" alt="Annotation loop diagram" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;" />
+        <h2 class="subtitle has-text-centered" >
+          Our MaskCaptioner data annotation pipeline. We use this pipeline to generate the LVISCap and LV-VISCap datasets, which serve to train MaskCaptioner.
+          To generate object-level captions, we feed both a visual prompt and a text prompt to a VLM (Gemini 2.0 flash). 
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/annotation_examples_cropped_for_gif_nobg.gif" alt="Annotations result visualization" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+          Some synthetic annotations examples from our proposed LV-VICap dataset.
+        </h2>
+      </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+<!-- Model architecture figure -->
+<section class="hero is-light">
+    <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered" style="margin-top: 1rem; margin-bottom: 0rem;">MaskCaptioner Architecture</h2>
+      <div class="item" style="margin-bottom: 2rem;">
+        <!-- Model architecture image (add your file at static/images/model_architecture.png) -->
+      <img src="static/images/final_model_architecture_temp_agg_clean_nobg.png" alt="Model architecture" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;" />
+        <h2 class="subtitle has-text-centered" style="margin-top: 1rem;" >
+          Overview of our MaskCaptioner architecture. Videos are divided into clips that are processed sequentially in a semi-online manner. After generating queries and predictions for each object within a clip, tracking and captioning can be performed at the video level.
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End model architecture figure -->
+
+
+
+<!-- SOTA comparison figure -->
+<section class="hero is-small">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3 has-text-centered" style="margin-top: 1rem; margin-bottom: 0rem;">Comparison with State Of The Art</h2>
+      <div class="item" style="margin-bottom: 2rem;">
+        <!-- SOTA comparison image (add your file at static/images/model_architecture.png) -->
+      <img src="static/images/tables_1_2_3_wc.png" alt="SOTA comparison" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;" />
+        <h2 class="subtitle has-text-centered" style="margin-top: 1rem;" >
+          MaskCaptioner achieves state of the art DVOC results on the VidSTG, VLN and BenSMOT benchmarks with pre-training on our LVIScap and LV-VIScap datasets.
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End model architecture figure -->
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@inproceedings{fiastre2025maskcaptionerlearningjointly},
+  title={MaskCaptioner : Learning to Jointly Segment and Caption Object Trajectories in Videos},
+  author={Gabriel Fiastre and Antoine Yang and Cordelia Schmid},
+  year={2025},
+  eprint={2510.14904},
+  arxivePrefix{arXiv},
+  url={https://arxiv.org/abs/2510.14904}
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+        href="https://github.com/gabfstr/MaskCaptioner">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/gabfstr/" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This work was granted access to the HPC resources of IDRIS under the allocation AD011014323R2
+            made by GENCI. It was funded in part by the French government under management of Agence
+            Nationale de la Recherche as part of the “France 2030" program, reference ANR-23-IACL-0008
+            (PR[AI]RIE-PSAI project), the ANR project VideoPredict ANR-21-FAI1-0002- 01, and Paris Île-de-
+            France Région in the frame of the DIM AI4IDF. Cordelia Schmid would like to acknowledge the
+            support by the Körber European Science Prize.
+          </p>
+          <p>
+          <div class="logos-row" aria-hidden="true">
+            <a href="https://www.inria.fr/" target="_blank" class="logo-link">
+              <img src="static/images/logo_INRIA.png" alt="Inria Paris Research logo" loading="lazy"/>
+            </a>
+            <a href="https://www.ens.psl.eu/" target="_blank" class="logo-link">
+              <img src="static/images/logo_ens_psl.png" alt="Ecole Normale Superieure ENS PSL Research logo" loading="lazy"/>
+            </a>
+          </div>
+          </p>
+          
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
