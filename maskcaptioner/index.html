@@ -8,9 +8,9 @@
   <!-- TODO: Replace with your paper title and author names -->
   <meta name="title" content="MaskCaptioner - Gabriel Fiastre, Antoine Yang, Cordelia Schmid">
   <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
+  <meta name="description" content="We generate object-level synthetic captions using VLM, and propose two synthetic datasets LVIScap and LV-VISCap on which we train MaskCaptioner, the first end-to-end model to jointly detect, segment, track and caption objects in a video.">
   <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
+  <meta name="keywords" content="dense video object captioning, instance segmentation, multi-object Tracking, image Captioning, video understanding, segmentation, detection, object localization, dense captioning, machine learning, computer vision, AI">
   <!-- TODO: List all authors -->
   <meta name="author" content="Gabriel Fiastre, Antoine Yang, Cordelia Schmid">
   <meta name="robots" content="index, follow">
@@ -21,22 +21,29 @@
   <!-- TODO: Replace with your institution or lab name -->
   <meta property="og:site_name" content="Inria Paris">
   <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="MaskCaptioner">
+  <meta property="og:title" content="MaskCaptioner: Learning to jointly Segment and Caption Object Trajectories in Videos">
   <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
+  <meta property="og:description" content="We generate object-level synthetic captions using VLM, and propose two synthetic datasets LVIScap and LV-VISCap on which we train MaskCaptioner, the first end-to-end model to jointly detect, segment, track and caption objects in a video.">
   <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
+  <meta property="og:url" content="https://www.gabriel.fiastre.fr/maskcaptioner/">
   <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
+  <meta property="og:image" content="https://www.gabriel.fiastre.fr/maskcaptioner/static/images/example_microscope_cropped_for_gif.gif">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="MaskCaptioner - Research Preview">
   <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
   <meta property="article:author" content="Gabriel Fiastre">
   <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
-
+  <meta property="article:tag" content="Machine Learning">
+  <meta property="article:tag" content="Computer Vision">
+  <meta property="article:tag" content="Instance Segmentation">
+  <meta property="article:tag" content="Video Instance Segmentation">
+  <meta property="article:tag" content="Video understanding">
+  <meta property="article:tag" content="Multi Object Tracking">
+  <meta property="article:tag" content="Video Instance Captioning">
+  <meta property="article:tag" content="Video Captioning">
+  <meta property="article:tag" content="Image Captioning">
+  <meta property="article:tag" content="Dense video object captioning">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <!-- TODO: Replace with your lab/institution Twitter handle -->
@@ -44,15 +51,15 @@
   <!-- TODO: Replace with first author's Twitter handle -->
   <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
   <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="MaskCaptioner">
+  <meta name="twitter:title" content="MaskCaptioner - ">
   <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
+  <meta name="twitter:description" content="We generate object-level synthetic captions using VLM, and propose two synthetic datasets LVIScap and LV-VISCap on which we train MaskCaptioner, the first end-to-end model to jointly detect, segment, track and caption objects in a video.">
   <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
+  <meta name="twitter:image" content="https://www.gabriel.fiastre.fr/maskcaptioner/static/images/example_microscope_cropped_for_gif.gif">
   <meta name="twitter:image:alt" content="MaskCaptioner - Research Preview">
 
   <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="MaskCaptioner">
+  <meta name="citation_title" content="MaskCaptioner: Learning to jointly Segment and Caption Object Trajectories in Videos">
   <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
   <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
   <meta name="citation_publication_date" content="2024">
@@ -114,8 +121,8 @@
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "MaskCaptioner",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
+    "headline": "MaskCaptioner - Learning to jointly Segment and Caption Object Trajectories in Videos",
+    "description": "We generate object-level synthetic captions using VLM, and propose two synthetic datasets LVIScap and LV-VISCap on which we train MaskCaptioner, the first end-to-end model to jointly detect, segment, track and caption objects in a video.",
     "author": [
       {
         "@type": "Person",
@@ -139,8 +146,8 @@
       "@type": "Organization",
       "name": "CONFERENCE_OR_JOURNAL_NAME"
     },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
+    "url": "https://www.gabriel.fiastre.fr/maskcaptioner/",
+    "image": "https://www.gabriel.fiastre.fr/maskcaptioner/static/images/example_microscope_cropped_for_gif.gif",
     "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
     "abstract": "FULL_ABSTRACT_TEXT_HERE",
     "citation": "BIBTEX_CITATION_HERE",
@@ -148,7 +155,7 @@
     "license": "https://creativecommons.org/licenses/by/4.0/",
     "mainEntity": {
       "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
+      "@id": "https://www.gabriel.fiastre.fr/maskcaptioner/"
     },
     "about": [
       {
@@ -169,11 +176,11 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Inria Paris",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
+    "url": "https://www.inria.fr/",
+    "logo": "https://www.gabriel.fiastre.fr/maskcaptioner/static/images/logo_INRIA.png",
     "sameAs": [
       "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
+      "https://github.com/gabfstr"
     ]
   }
   </script>
@@ -361,13 +368,13 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <pre id="bibtex-code"><code>@inproceedings{fiastre2025maskcap},
-  title={MaskCaptioner : Learning to jointly Segment and Caption Object Trajectories in Videos},
+      <pre id="bibtex-code"><code>@inproceedings{fiastre2025maskcaptionerlearningjointly},
+  title={MaskCaptioner : Learning to Jointly Segment and Caption Object Trajectories in Videos},
   author={Gabriel Fiastre and Antoine Yang and Cordelia Schmid},
   year={2025},
-  eprint={},
-  arxivePrefix{archiv},
-  url={https://www.gabriel.fiastre.fr/maskcaptioner/}
+  eprint={2510.14904},
+  arxivePrefix{arXiv},
+  url={https://arxiv.org/abs/2510.14904}
 }</code></pre>
     </div>
 </section>
