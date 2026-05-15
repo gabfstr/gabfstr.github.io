@@ -17,13 +17,13 @@ export function TeachingSection(props: PageSection): React.ReactElement {
     return (
         <Animation type="fadeUp">
             <Section anchor={props.sectionId} heading={props.heading}>
-            <div className={classes.Teaching}> {/* apply the News class to the div */}
-                {teachingItems.map((item, index) => (
-                    <div className={classes.row} key={index} > {/* apply the row class to the div */}
-                        <NewsItem data={item} />
-                    </div>
-                ))}
-            </div>
+                <div className={classes.Teaching}> {/* apply the News class to the div */}
+                    {teachingItems.map((item, index) => (
+                        <div className={classes.row} key={index} > {/* apply the row class to the div */}
+                            <NewsItem data={item} />
+                        </div>
+                    ))}
+                </div>
             </Section>
         </Animation>
     );
